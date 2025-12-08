@@ -1,0 +1,398 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+.wcc-calculator {
+    background: linear-gradient(145deg, #25028e 0%, #357AFF 100%);
+    padding: 50px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wcc-header {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 45px;
+    flex-wrap: wrap;
+}
+
+.wcc-input-group {
+    flex: 1;
+    min-width: 280px;
+}
+
+.wcc-input-group label {
+    display: block;
+    margin-bottom: 14px;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #8fde5d;
+}
+
+.wcc-input-group select {
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 16px;
+    border: 2px solid rgba(143, 222, 93, 0.2);
+    background: #ffffff;
+    color: #1a2332;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%231a2332' d='M7 10L2 5h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 50px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.wcc-input-group select:hover {
+    border-color: #8fde5d;
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(143, 222, 93, 0.2);
+}
+
+.wcc-input-group select:focus {
+    outline: none;
+    border-color: #8fde5d;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(143, 222, 93, 0.15), 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.wcc-number-input {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 6px;
+    border: 2px solid rgba(143, 222, 93, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.wcc-number-input:hover {
+    border-color: #8fde5d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(143, 222, 93, 0.2);
+}
+
+.wcc-number-input:focus-within {
+    border-color: #8fde5d;
+    box-shadow: 0 0 0 4px rgba(143, 222, 93, 0.15), 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.wcc-number-input input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: #1a2332;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    outline: none;
+    padding: 10px;
+}
+
+.wcc-number-input button {
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: linear-gradient(135deg, #8fde5d 0%, #7bc950 100%);
+    color: #1a2332;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(143, 222, 93, 0.3);
+}
+
+.wcc-number-input button:hover {
+    background: linear-gradient(135deg, #a0ef6d 0%, #8fde5d 100%);
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(143, 222, 93, 0.5);
+}
+
+.wcc-number-input button:active {
+    transform: scale(0.96);
+}
+
+.wcc-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+    font-weight: 800;
+    text-align: center;
+    color: #ffffff !important;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.wcc-options-header {
+    display: grid;
+    grid-template-columns: 110px 1fr 100px 130px;
+    gap: 20px;
+    padding: 18px 28px;
+    font-weight: 700;
+    color: #8fde5d;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: rgba(143, 222, 93, 0.08);
+    border-radius: 16px 16px 0 0;
+    border: 2px solid rgba(143, 222, 93, 0.15);
+    border-bottom: none;
+}
+
+.wcc-options {
+    background: rgba(26, 35, 50, 0.5);
+    border-radius: 0 0 16px 16px;
+    padding: 0;
+    min-height: 100px;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(143, 222, 93, 0.15);
+    border-top: none;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.wcc-option-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 100px 130px;
+    gap: 20px;
+    padding: 22px 28px;
+    border-bottom: 1px solid rgba(143, 222, 93, 0.08);
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.wcc-option-row:hover {
+    background: rgba(143, 222, 93, 0.06);
+}
+
+.wcc-option-row:last-child {
+    border-bottom: none;
+    border-radius: 0 0 16px 16px;
+}
+
+.wcc-col-name {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.wcc-col-hours,
+.wcc-col-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.wcc-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.wcc-toggle.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.wcc-toggle input {
+    display: none;
+}
+
+.wcc-toggle-slider {
+    width: 56px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-right: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.wcc-toggle input:checked+.wcc-toggle-slider {
+    background: linear-gradient(135deg, #8fde5d 0%, #7bc950 100%);
+    border-color: #8fde5d;
+    box-shadow: 0 0 16px rgba(143, 222, 93, 0.5), inset 0 1px 3px rgba(255, 255, 255, 0.3);
+}
+
+.wcc-toggle-slider:after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 50%;
+    top: 1px;
+    left: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.wcc-toggle input:checked+.wcc-toggle-slider:after {
+    transform: translateX(26px);
+}
+
+.wcc-toggle-label {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+}
+
+.wcc-total {
+    display: grid;
+    grid-template-columns: 1fr 120px 150px;
+    gap: 24px;
+    padding: 32px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(143, 222, 93, 0.12) 0%, rgba(123, 201, 80, 0.12) 100%);
+    border-radius: 16px;
+    margin-top: 28px;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(143, 222, 93, 0.25);
+    box-shadow: 0 12px 32px rgba(143, 222, 93, 0.15);
+}
+
+.wcc-total-label {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #ffffff;
+}
+
+.wcc-total-hours {
+    color: #8fde5d;
+    font-size: 22px;
+    font-weight: 800;
+    text-align: right;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.wcc-total-price {
+    color: #8fde5d;
+    font-size: 28px;
+    font-weight: 900;
+    text-align: right;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.wcc-loading {
+    text-align: center;
+    padding: 60px;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .wcc-calculator {
+        padding: 36px;
+    }
+
+    .wcc-options-header,
+    .wcc-option-row,
+    .wcc-total {
+        grid-template-columns: 100px 1fr 90px 120px;
+        gap: 16px;
+        padding: 18px 24px;
+    }
+
+    .wcc-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wcc-calculator {
+        padding: 28px;
+        border-radius: 20px;
+    }
+
+    .wcc-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .wcc-input-group {
+        min-width: 100%;
+    }
+
+    .wcc-options-header {
+        display: none;
+    }
+
+    .wcc-options {
+        border-radius: 16px;
+        border: 2px solid rgba(143, 222, 93, 0.15);
+    }
+
+    .wcc-option-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 20px;
+        background: rgba(26, 35, 50, 0.6);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        border: 1px solid rgba(143, 222, 93, 0.15);
+    }
+
+    .wcc-option-row:last-child {
+        border-radius: 12px;
+    }
+
+    .wcc-col-name {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .wcc-col-hours:before {
+        content: "Hours: ";
+        color: #8fde5d;
+        font-weight: 600;
+    }
+
+    .wcc-col-price:before {
+        content: "Price: ";
+        color: #8fde5d;
+        font-weight: 600;
+    }
+
+    .wcc-total {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 14px;
+        padding: 28px;
+    }
+
+    .wcc-total-hours,
+    .wcc-total-price {
+        text-align: center;
+    }
+
+    .wcc-title {
+        font-size: 26px;
+        text-align: center;
+    }
+}
