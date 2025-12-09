@@ -378,6 +378,12 @@ function wcc_create_frontend_template()
         <div class="wcc-total-hours"><span id="wcc-total-hours">0</span>h</div>
         <div class="wcc-total-price">$<span id="wcc-total-price">0.00</span></div>
     </div>
+    
+    <div class="wcc-timeline">
+        <div class="wcc-timeline-label">Estimated Timeline:</div>
+        <div class="wcc-timeline-value"><span id="wcc-timeline-days">10 - 13 days</span></div>
+        <div class="wcc-timeline-note">*Timeline may vary depending on current project workload</div>
+    </div>
 </div>
 PHP;
 

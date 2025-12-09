@@ -296,6 +296,48 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+.wcc-timeline {
+    display: grid;
+    grid-template-columns: 1fr 120px 150px;
+    gap: 24px;
+    padding: 20px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    background: rgba(143, 222, 93, 0.06);
+    border-radius: 0 0 16px 16px;
+    margin-top: -12px;
+    padding-top: 24px;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(143, 222, 93, 0.15);
+    border-top: none;
+}
+
+.wcc-timeline-label {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.wcc-timeline-value {
+    grid-column: 2 / 4;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.wcc-timeline-note {
+    grid-column: 1 / 4;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    margin-top: 4px;
+    text-align: right;
+}
+
 .wcc-loading {
     text-align: center;
     padding: 60px;
@@ -303,6 +345,8 @@
     font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
 }
+
+
 
 /* Responsive Design */
 @media (max-width: 968px) {

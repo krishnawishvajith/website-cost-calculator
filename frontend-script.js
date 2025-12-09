@@ -31,8 +31,14 @@ jQuery(document).ready(function($) {
             total_price += price;
         });
         
+        // Calculate project timeline
+        var days = Math.ceil(total_hours / 24) + 10;
+        var min_days = days;
+        var max_days = days + 3;
+        
         $("#wcc-total-hours").text(total_hours.toFixed(1));
         $("#wcc-total-price").text(total_price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $("#wcc-timeline-days").text(min_days + " - " + max_days + " days");
     }
     
     function updateDisplayedValues() {
