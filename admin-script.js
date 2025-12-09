@@ -1,30 +1,35 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     var typeCounter = $(".website-type-row").length;
-    
+
+    // Scroll to top on page load if there's a success message
+    if ($(".notice-success").length > 0) {
+        $("html, body").animate({ scrollTop: 0 }, 500);
+    }
+
     // Toggle additional fields based on base field checkbox
-    $(document).on("change", ".base-field-checkbox", function() {
+    $(document).on("change", ".base-field-checkbox", function () {
         var $row = $(this).closest("tr");
         var isChecked = $(this).is(":checked");
-        
+
         $row.find(".additional-field").prop("disabled", !isChecked);
-        
+
         if (!isChecked) {
             $row.find(".additional-field").val(0);
         }
     });
-    
-    $("#add-website-type").click(function() {
+
+    $("#add-website-type").click(function () {
         var newType = "New Type " + (typeCounter + 1);
         $("#website-types-container").append(
             '<div class="website-type-row"><input type="text" name="website_types[]" value="' + newType + '" placeholder="Website Type"><button type="button" class="button remove-type">Remove</button></div>'
         );
-        
+
         // Add new tab
         var newIndex = typeCounter;
         $("#website-type-tabs").append(
             '<button type="button" class="wcc-tab-button" data-tab="tab-' + newIndex + '">' + newType + '</button>'
         );
-        
+
         // Add new tab panel
         $("#website-type-tab-content").append(
             '<div class="wcc-tab-panel" id="tab-' + newIndex + '">' +
@@ -49,44 +54,44 @@ jQuery(document).ready(function($) {
             '<button type="button" class="button add-calculator-option" data-type-index="' + newIndex + '">Add Option</button>' +
             '</div>'
         );
-        
+
         typeCounter++;
     });
-    
-    $(document).on("click", ".remove-type", function() {
+
+    $(document).on("click", ".remove-type", function () {
         var index = $(this).parent().index();
         $(this).parent().remove();
         $(".wcc-tab-button").eq(index).remove();
         $(".wcc-tab-panel").eq(index).remove();
-        
+
         // Activate first tab if active tab was removed
         if ($(".wcc-tab-button.active").length === 0) {
             $(".wcc-tab-button").first().addClass("active");
             $(".wcc-tab-panel").first().addClass("active");
         }
     });
-    
-    $(document).on("click", ".wcc-tab-button", function() {
+
+    $(document).on("click", ".wcc-tab-button", function () {
         var tabId = $(this).data("tab");
         $(".wcc-tab-button").removeClass("active");
         $(this).addClass("active");
         $(".wcc-tab-panel").removeClass("active");
         $("#" + tabId).addClass("active");
     });
-    
-    $(document).on("input", ".website-type-row input", function() {
+
+    $(document).on("input", ".website-type-row input", function () {
         var index = $(this).parent().index();
         var newName = $(this).val();
         $(".wcc-tab-button").eq(index).text(newName);
         $(".wcc-tab-panel").eq(index).find("h3").text(newName + " Options");
         $(".wcc-tab-panel").eq(index).find("input[name='website_type_key[]']").val(newName);
     });
-    
-    $(document).on("click", ".add-calculator-option", function() {
+
+    $(document).on("click", ".add-calculator-option", function () {
         var typeIndex = $(this).data("type-index");
         var container = $(".calculator-options-container[data-type-index='" + typeIndex + "']");
         var optIndex = container.find("tr").length;
-        
+
         container.append(
             '<tr class="option-row">' +
             '<td><input type="text" name="option_name[' + typeIndex + '][]" class="regular-text" required></td>' +
@@ -101,8 +106,8 @@ jQuery(document).ready(function($) {
             '</tr>'
         );
     });
-    
-    $(document).on("click", ".remove-option", function() {
+
+    $(document).on("click", ".remove-option", function () {
         $(this).closest("tr").remove();
     });
 });
