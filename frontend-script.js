@@ -15,14 +15,18 @@ jQuery(document).ready(function($) {
             var hours = base_hours;
             var price = base_price;
             
-            // If it's a "landing page" field, multiply by number of pages
+            // Two different calculation methods:
+            
+            // Method 1: Multiply entire cost by number of pages
+            // Used for options like "Each Unique Landing Page Design"
             if (multiply) {
                 hours *= num_pages;
                 price *= num_pages;
             }
-            // If it's a base field, add additional cost per extra page
+            // Method 2: Base cost + additional per extra page (starting from page 2)
+            // Used for options that scale incrementally
             else if (is_base_field && num_pages > 1) {
-                var extra_pages = num_pages - 1;
+                var extra_pages = num_pages - 1;  // Only count pages beyond the first
                 hours += (additional_hours * extra_pages);
                 price += (additional_price * extra_pages);
             }
@@ -56,12 +60,12 @@ jQuery(document).ready(function($) {
             var display_hours = base_hours;
             var display_price = base_price;
             
-            // If it's a "landing page" field, multiply by number of pages
+            // Method 1: Multiply by total pages
             if (multiply) {
                 display_hours *= num_pages;
                 display_price *= num_pages;
             }
-            // If it's a base field, add additional cost per extra page
+            // Method 2: Base + additional per extra page (from page 2 onwards)
             else if (is_base_field && num_pages > 1) {
                 var extra_pages = num_pages - 1;
                 display_hours += (additional_hours * extra_pages);
@@ -95,7 +99,11 @@ jQuery(document).ready(function($) {
                         var disabled = (!option.user_can_toggle && option.default_enabled) ? "disabled" : "";
                         var checked = option.default_enabled ? "checked" : "";
                         var yesNo = option.default_enabled ? "Yes" : "No";
+                        
+                        // Check if this option should multiply by pages
+                        // (only for "landing page" named options)
                         var multiply = option.name.toLowerCase().indexOf("landing page") !== -1 ? "1" : "0";
+                        
                         var is_base_field = option.is_base_field || 0;
                         var additional_hours = option.additional_hours || 0;
                         var additional_price = option.additional_price || 0;
