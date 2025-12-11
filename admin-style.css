@@ -121,3 +121,16 @@
 .option-row:hover {
     background-color: #f9f9f9;
 }
+
+.calculator-options-container tr {
+    cursor: move;
+}
+
+.calculator-options-container tr.dragging {
+    opacity: 0.5;
+    background: #f0f0f0;
+}
+
+.calculator-options-container tr.drag-over {
+    border-top: 3px solid #2271b1;
+}

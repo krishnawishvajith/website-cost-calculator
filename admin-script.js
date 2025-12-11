@@ -152,4 +152,54 @@ jQuery(document).ready(($) => {
   $(document).on("click", ".remove-option", function () {
     $(this).closest("tr").remove()
   })
+
+  // Drag and Drop functionality
+  $(document).on("mousedown", ".option-row", function (e) {
+    var $row = $(this)
+    var $container = $row.closest("tbody")
+    var startY = e.pageY
+    var isDragging = false
+
+    $(document).on("mousemove.drag", function (e) {
+      if (Math.abs(e.pageY - startY) > 5) {
+        isDragging = true
+        $row.addClass("dragging")
+      }
+
+      if (isDragging) {
+        var $rows = $container.find("tr:not(.dragging)")
+        var mouseY = e.pageY
+
+        $rows.removeClass("drag-over")
+
+        $rows.each(function () {
+          var $this = $(this)
+          var offset = $this.offset()
+          var height = $this.outerHeight()
+          var middle = offset.top + height / 2
+
+          if (mouseY < middle && mouseY > offset.top) {
+            $this.addClass("drag-over")
+            return false
+          }
+        })
+      }
+    })
+
+    $(document).on("mouseup.drag", function () {
+      if (isDragging) {
+        var $target = $container.find("tr.drag-over")
+
+        if ($target.length) {
+          $target.before($row)
+        }
+
+        $row.removeClass("dragging")
+        $container.find("tr").removeClass("drag-over")
+      }
+
+      $(document).off(".drag")
+      isDragging = false
+    })
+  })
 })

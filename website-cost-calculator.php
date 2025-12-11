@@ -107,6 +107,11 @@ class Website_Cost_Calculator
                 if (isset($_POST['option_name'][$type_index]) && is_array($_POST['option_name'][$type_index])) {
                     foreach ($_POST['option_name'][$type_index] as $opt_index => $name) {
                         if (!empty($name)) {
+                            // Get the position from the DOM order
+                            $position = isset($_POST['option_position'][$type_index][$opt_index])
+                                ? intval($_POST['option_position'][$type_index][$opt_index])
+                                : $opt_index;
+
                             $options[] = array(
                                 'name' => sanitize_text_field($name),
                                 'hours' => floatval($_POST['option_hours'][$type_index][$opt_index]),
@@ -115,10 +120,16 @@ class Website_Cost_Calculator
                                 'user_can_toggle' => isset($_POST['option_user_toggle'][$type_index][$opt_index]) ? 1 : 0,
                                 'is_base_field' => isset($_POST['option_base_field'][$type_index][$opt_index]) ? 1 : 0,
                                 'additional_hours' => floatval($_POST['option_additional_hours'][$type_index][$opt_index]),
-                                'additional_price' => floatval($_POST['option_additional_price'][$type_index][$opt_index])
+                                'additional_price' => floatval($_POST['option_additional_price'][$type_index][$opt_index]),
+                                'position' => $position
                             );
                         }
                     }
+
+                    // Sort by position
+                    usort($options, function ($a, $b) {
+                        return $a['position'] - $b['position'];
+                    });
                 }
 
                 $all_options[sanitize_text_field($website_type)] = $options;
@@ -195,7 +206,7 @@ function wcc_activate_plugin()
     // Create template and script files
     wcc_create_admin_template();
     wcc_create_frontend_template();
-    
+
     // Set defaults if not exist
     if (!get_option('wcc_website_types')) {
         update_option('wcc_website_types', array(
