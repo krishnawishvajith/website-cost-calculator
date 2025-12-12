@@ -60,6 +60,14 @@
     box-shadow: 0 8px 24px rgba(143, 222, 93, 0.2);
 }
 
+.wcc-increase:hover {
+    background: #4fa21b;
+}
+
+.wcc-decrease:hover {
+    background: #4fa21b;
+}
+
 .wcc-input-group select:focus {
     outline: none;
     border-color: #8fde5d;
@@ -105,7 +113,7 @@
     width: 48px;
     height: 48px;
     border: none;
-    background: linear-gradient(135deg, #8fde5d 0%, #7bc950 100%);
+    background: #56a028;
     color: #1a2332;
     border-radius: 12px;
     cursor: pointer;
@@ -129,8 +137,8 @@
 }
 
 .wcc-title {
-    font-size: 36px;
-    margin-bottom: 40px;
+    font-size: 13px;
+    margin-bottom: 15px;
     font-weight: 800;
     text-align: center;
     color: #ffffff !important;
@@ -169,7 +177,7 @@
     display: grid;
     grid-template-columns: 110px 1fr 100px 130px;
     gap: 20px;
-    padding: 22px 28px;
+    padding: 5px 5px;
     border-bottom: 1px solid rgba(143, 222, 93, 0.08);
     align-items: center;
     transition: all 0.2s ease;
@@ -185,7 +193,7 @@
 }
 
 .wcc-col-name {
-    font-size: 15px;
+    font-size: 13.5px;
     font-weight: 500;
     line-height: 1.6;
     color: #ffffff;
@@ -363,7 +371,7 @@
     }
 
     .wcc-title {
-        font-size: 28px;
+        font-size: 13px;
     }
 }
 
@@ -436,7 +444,7 @@
     }
 
     .wcc-title {
-        font-size: 26px;
+        font-size: 13px;
         text-align: center;
     }
 }
